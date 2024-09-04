@@ -1,0 +1,169 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+input{
+    visibility: hidden;
+}
+#wrapper{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+h1{
+    margin: 30px;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+h1::after{
+    content: ' ';
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    position: absolute;
+    top: 14%;
+    left: 48%;
+    transform: translateX(-22%);
+    animation: animate 2s linear infinite;    
+}
+
+@keyframes animate {
+    0%{
+        width: 100px; 
+    }
+    50%{
+        width: 200px; 
+    }
+    100%{
+        width: 100px; 
+    }
+    
+}
+
+
+
+.sub_heading{
+    margin:15px auto 35px auto;
+    width: 90%;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    text-transform: capitalize;  
+    background-color: #eeeded ;
+    box-shadow: 3px 2px 5px #b0b0b0 ;
+    gap: 20px;  
+        
+}
+h2{
+    color:white;
+    height: 100%;
+    padding: 0 20px;
+    background-color: #e5e1e1;
+    align-items: center;
+    line-height: 50px;
+}
+label{
+    color: rgb(169, 166, 166);
+    padding: 2px;
+    margin: 2px;
+    cursor: pointer;
+    height: 100%;
+    line-height: 50px;
+    font-size: 18px;
+    transition: 0.5s;
+}
+label:hover{
+    color: black;
+}
+
+.photo_contanier{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
+    position: relative;
+}
+
+.photo_contanier img{
+    width: 100%;
+    height: 350px;
+    box-shadow: 5px 3px 10px rgb(106, 103, 103);
+    cursor: pointer;
+    filter:grayscale(100%);
+    display: block;  
+}
+
+.photo_contanier img:hover{
+    border-radius: 15px;
+    transition: 0.8s;
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+#all:checked ~ #wrapper .photo_contanier img {
+    display: block;
+    transition: 1s;
+}
+
+#family:checked ~ #wrapper .photo_contanier img:not(.family1) {
+    display: none;
+    transition: 1s;
+}
+
+#child:checked ~ #wrapper .photo_contanier img:not(.child1) {
+    display: none;
+    transition: 0.5s;
+    
+}
+
+#place:checked ~ #wrapper .photo_contanier img:not(.place1) {
+    display: none;
+    transition: 0.5s;
+}
+
+
+
+@media (max-width : 800px){
+    #wrapper{
+        width: 100%;
+        height: 100%;
+    }
+
+    .sub_heading{
+        margin:20px auto;
+        width: 90%;
+        display: flex;
+        height: 50px;
+        align-items: center;
+        text-transform: capitalize;  
+        background-color: #eeeded ;
+        box-shadow: 3px 2px 5px #b0b0b0 ;
+        gap: 10px;  
+        
+    }
+
+    .photo_contanier{
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
+        position: relative;
+    }
+
+    .photo_contanier img{
+        width: 100%;
+        height: 250px;
+        box-shadow: 3px 3px 8px gray;
+        cursor: pointer;
+        content: 'All Photos';
+        transition: 1s;
+    }    
+
+}
